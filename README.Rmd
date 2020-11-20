@@ -1,0 +1,31 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# VertNBS
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+What are the roles of vertebrates in our nature based solution? This project asks how seed dispersers influence carbon accumulation in regenerating forests.
+
+## Installation
+
+You can install from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("evancf/VertNBS")
+```
+

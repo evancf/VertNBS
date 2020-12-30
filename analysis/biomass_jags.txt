@@ -1,0 +1,33 @@
+
+
+model {
+
+  # Likelihood
+  for (i in 1:n) {
+    #mean [i] <- a*age[i] * exp(-b*age[i])
+
+    mean [i] <- a*age[i] / (b + age[i])
+
+    # convert this mean into the rate paramter
+    rate [i] <- shape/mean[i]
+
+    # assuming gamma distributed biomass data
+    biomass[i] ~ dgamma(shape, rate[i])
+  }
+
+  # Priors
+  a ~ dgamma (0.1, 0.1)
+  b ~ dgamma (0.1, 0.1)
+  shape ~ dgamma (0.01, 0.01)
+
+  # Derived quantities
+
+  for(i in 1:100){
+    #pred.biomass[i] <- a*pred.ages[i]*exp(-b*pred.ages[i])
+    pred.biomass[i] <- a*pred.ages[i] / (b + pred.ages[i])
+  }
+
+
+} # End of model
+
+    
